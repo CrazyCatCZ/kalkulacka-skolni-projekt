@@ -1,0 +1,27 @@
+* {
+    /*
+    margin: 0;
+    padding: 0;
+    */
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    height: 500px;
+    width: 400px;
+    border: solid black 1px
+}
+
+.row {
+    display: flex;
+}
+
+.row button {
+    min-height: 30px;
+    flex: 1;
+}
