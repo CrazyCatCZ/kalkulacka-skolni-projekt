@@ -1,1 +1,1 @@
-# skolni-projekt-kalkulacka
+# kalkulacka-skolni-projekt
