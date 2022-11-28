@@ -12,16 +12,18 @@
 }
 
 #calculator {
+    margin-top: 10em;
     height: 500px;
     width: 400px;
-    border: solid black 1px
+    border: solid black 0px
 }
 
 .row {
     display: flex;
+    flex: 1;
+    height: calc(100% / 6); 
 }
 
 .row button {
-    min-height: 30px;
     flex: 1;
 }
