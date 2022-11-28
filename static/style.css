@@ -13,9 +13,13 @@
 
 #calculator {
     margin-top: 10em;
-    height: 500px;
+    height: 400px;
     width: 400px;
     border: solid black 0px
+}
+
+#input {
+    width: 100%;
 }
 
 .row {
