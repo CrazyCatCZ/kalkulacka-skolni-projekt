@@ -43,6 +43,14 @@ buttons.forEach((button) => {
     })
 })
 
+const clearDisplay = () => {
+  input.value = ""
+}
+
+//Clears display
+clearButton.addEventListener('click', clearDisplay)
+clearButton2.addEventListener('click', clearDisplay)
+
 // Checks user input or evaluate
 enterButton.addEventListener('click', (event) => {
     if (input.value == '') {
