@@ -83,3 +83,21 @@ enterButton.addEventListener('click', (event) => {
     input.value = result
 })
 
+// Writing with keyboard
+document.addEventListener("keyup", (event) => {
+  let key = event.key
+
+  if ((canPress.includes(key) == true)) {
+    buttons.forEach((button) => {
+        if (button.value == key) {
+          button.click()
+        }
+    })
+  }
+
+  else if (key == 'Backspace') {
+    let value = input.value
+    input.value = value.substring(0, value.length-1)
+  }
+})
+
