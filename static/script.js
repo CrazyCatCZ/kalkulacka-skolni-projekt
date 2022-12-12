@@ -9,8 +9,8 @@ $(document).ready(() => {
     ]
     
     const notShowableButtons = [
-        $("#enterButton"), $("clearButton"), $("clearButton2"),
-        $("deleteButton"), $("revereverseSignButton")
+        $("#enterButton").val(), $("#clearButton").val(), $("#clearButton2").val(),
+        $("#deleteButton").val(), $("#reverseSignButton").val()
     ]
     
     let characterOnIndex = (index) => {
@@ -21,7 +21,9 @@ $(document).ready(() => {
     // Display input on screen
     $(".row > button").click(function() {
         const button = $(this);
-        const buttonCanBeShown = !notShowableButtons.includes(button)
+        const buttonCanBeShown = (jQuery.inArray(button.val(), notShowableButtons)) == -1
+
+        console.log(notShowableButtons, button.val())
 
         if (buttonCanBeShown) {
             let lastIndex = button.val()
