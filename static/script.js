@@ -28,14 +28,18 @@ $(document).ready(() => {
     }
 
     const reverseSign = () => {
-        $("#input").val($("input").val() * -1)
+        console.log("test")
+        let temp = $("#input").val();
+        console.log(temp)
+        temp = temp * -1;
+        $("#input").val(temp);
+        //$("#input").val($("input").val() * -1)
     }
     
     // Display input on screen
-    $(".row > button").click(function() {
+    $(".row > button").unbind().click(function() {
         const button = $(this);
         const buttonCanBeShown = (jQuery.inArray(button.val(), notShowableButtons)) == -1
-        console.log(button);
 
         if (buttonCanBeShown) {
             let lastIndex = button.val()
@@ -57,6 +61,19 @@ $(document).ready(() => {
             }
         }
     })
+
+    // Clear display
+    $("#clearButton, #clearButton2").click(clearDisplay)
+
+    // Remove last index
+    $("#deleteButton").click(deleteKey)
+
+    // Reverse sign
+    $("#reverseSignButton").click(reverseSign)
+    
+
+
+
     // Checks user input or evaluate
     $("#enterButton").click(function () {
         const input = $(this);
