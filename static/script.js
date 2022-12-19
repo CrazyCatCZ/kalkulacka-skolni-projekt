@@ -1,5 +1,7 @@
 
 $(document).ready(() => {
+    const SQUARE = 2
+
     const canPress = [
         "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
         "+", "-", "*", "/",
@@ -10,7 +12,8 @@ $(document).ready(() => {
     
     const notShowableButtons = [
         $("#enterButton").val(), $("#clearButton").val(), $("#clearButton2").val(),
-        $("#deleteButton").val(), $("#reverseSignButton").val()
+        $("#deleteButton").val(), $("#reverseSignButton").val(), $("#inverseButton").val(),
+        $("#percentButton").val(), $("#squareButton").val(), $("#squareRootButton").val()
     ]
     
     let characterOnIndex = (index) => {
@@ -28,14 +31,40 @@ $(document).ready(() => {
     }
 
     const reverseSign = () => {
-        console.log("test")
         let temp = $("#input").val();
-        console.log(temp)
         temp = temp * -1;
+
         $("#input").val(temp);
-        //$("#input").val($("input").val() * -1)
+    }
+
+    const square = () => {
+        let temp = $("#input").val();
+        temp = eval(temp)
+        temp = Math.pow(temp, SQUARE)
+  
+        $("#input").val(temp);
+    }
+
+    const squareRoot = () => {
+        let temp = $("#input").val();
+        temp = eval(input.value)
+        temp = Math.sqrt(temp, SQUARE)
+
+        $("#input").val(temp);
+    }
+
+    const reciprocate = () => {
+        let temp = $("#input").val();
+        temp = eval(input.value)
+        temp = 1 / temp
+
+        $("#input").val(temp);
     }
     
+    const calculatePercetage = () => {
+        alert("Pro toto tlačítka nebyla do zatím přidaná funkcionalita")
+    }
+
     // Display input on screen
     $(".row > button").unbind().click(function() {
         const button = $(this);
@@ -62,18 +91,14 @@ $(document).ready(() => {
         }
     })
 
-    // Clear display
     $("#clearButton, #clearButton2").click(clearDisplay)
-
-    // Remove last index
     $("#deleteButton").click(deleteKey)
-
-    // Reverse sign
     $("#reverseSignButton").click(reverseSign)
+    $("#squareButton").click(square)
+    $("#squareRootButton").click(squareRoot)
+    $("#inverseButton").click(reciprocate)
+    $("#percentButton").click(calculatePercetage)
     
-
-
-
     // Checks user input or evaluate
     $("#enterButton").click(function () {
         const input = $(this);
