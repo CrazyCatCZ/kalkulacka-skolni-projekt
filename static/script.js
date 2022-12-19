@@ -33,19 +33,24 @@ $(document).ready(() => {
     
     // Display input on screen
     $(".row > button").click(function() {
-        console.log("test")
         const button = $(this);
         const buttonCanBeShown = (jQuery.inArray(button.val(), notShowableButtons)) == -1
+        console.log(button);
 
         if (buttonCanBeShown) {
             let lastIndex = button.val()
             let penultimateIndex = characterOnIndex(1)
-        
-            if (canPressSign.includes(lastIndex) & canPressSign.includes(penultimateIndex)) {
-                console.log('last index is sign')
+
+            const valueIsSignAndInputIsEmpty =
+                canPressSign.includes(lastIndex) && $("#input").val === "";
+            const lastIndexIsSign =
+                canPressSign.includes(lastIndex) &
+                canPressSign.includes(penultimateIndex);
+
+            if (lastIndexIsSign) {
+                deleteKey()
             }
-            else {
-                console.log("test")
+            if (!valueIsSignAndInputIsEmpty) {
                 let temp = $("#input").val();
                 temp += lastIndex;
                 $("#input").val(temp);
