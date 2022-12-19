@@ -4,6 +4,7 @@ const clearButton = document.getElementById("clearButton");
 const clearButton2 = document.getElementById("clearButton2");
 const deleteButton = document.getElementById("deleteButton");
 const squareButton = document.getElementById("squareButton");
+const squareRootButton = document.getElementById("squareRootButton");
 const reverseSignButton = document.getElementById("reverseSignButton");
 const buttons = document
   .querySelector("#calculator")
@@ -38,6 +39,7 @@ const notShowableButtons = [
   deleteButton,
   reverseSignButton,
   squareButton,
+  squareRootButton
 ];
 
 let characterOnIndex = (index) => {
@@ -88,21 +90,31 @@ const reverseSign = () => {
 };
 
 const square = () => {
+  if (input.value === "") {
+    input.placeholder = "Zadejte číslo..."
+  }
+  else {
+    const value = eval(input.value)
+    const result = Math.pow(value, SQUARE)
+  
+    input.value = result
+  }
+
+}
+
+const squareRoot = () => {
   const value = eval(input.value)
-  const result = Math.pow(value, SQUARE)
+  const result = Math.sqrt(value, SQUARE)
 
   input.value = result
 }
 
-//Clears display
 clearButton.addEventListener("click", clearDisplay);
 clearButton2.addEventListener("click", clearDisplay);
-
 deleteButton.addEventListener("click", deleteKey);
-
 reverseSignButton.addEventListener("click", reverseSign);
-
 squareButton.addEventListener("click", square);
+squareRootButton.addEventListener("click", squareRoot)
 
 // Checks user input or evaluate
 enterButton.addEventListener("click", (event) => {
@@ -110,7 +122,7 @@ enterButton.addEventListener("click", (event) => {
   const lastCharacterIsSign = canPressSign.includes(lastCharacter);
 
   if (input.value == "") {
-    input.placeholder = "Enter something";
+    input.placeholder = "Zadeje číslo...";
   }
 
   if (lastCharacterIsSign) {
