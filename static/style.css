@@ -1,3 +1,11 @@
+:root {
+    --input-color: #242830;
+    --primary-buttons-color: #29303f;
+    --secondary-button-color: #dd69f7;
+    --primary-text-color: #f2f2f2;
+    --secondary-text-color: #bd50d8;
+}
+
 * {
   /*
     margin: 0;
