@@ -6,6 +6,7 @@ const deleteButton = document.getElementById("deleteButton");
 const squareButton = document.getElementById("squareButton");
 const squareRootButton = document.getElementById("squareRootButton");
 const reverseSignButton = document.getElementById("reverseSignButton");
+const inverseButton = document.getElementById("inverseButton");
 const buttons = document
   .querySelector("#calculator")
   .querySelectorAll("button");
@@ -39,7 +40,8 @@ const notShowableButtons = [
   deleteButton,
   reverseSignButton,
   squareButton,
-  squareRootButton
+  squareRootButton,
+  inverseButton
 ];
 
 let characterOnIndex = (index) => {
@@ -109,7 +111,19 @@ const squareRoot = () => {
   }
 }
 
-const placeholderButtons = [reverseSignButton, squareButton, squareRootButton]
+const reciprocate = () => {
+  if (input.value !== "") {
+    const value = eval(input.value)
+    const result = 1 / value
+  
+    input.value = result
+  }
+}
+
+const placeholderButtons = [
+  reverseSignButton, squareButton, squareRootButton,
+  inverseButton,
+]
 
 clearButton.addEventListener("click", clearDisplay);
 clearButton2.addEventListener("click", clearDisplay);
@@ -117,6 +131,7 @@ deleteButton.addEventListener("click", deleteKey);
 reverseSignButton.addEventListener("click", reverseSign);
 squareButton.addEventListener("click", square);
 squareRootButton.addEventListener("click", squareRoot)
+inverseButton.addEventListener("click", reciprocate)
 
 placeholderButtons.forEach(button => {
   button.addEventListener("click", () => {
