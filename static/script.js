@@ -86,28 +86,30 @@ const deleteKey = () => {
 };
 
 const reverseSign = () => {
-  input.value = input.value * -1;
+  if (input.value !== "") {
+    input.value = input.value * -1;
+  }
 };
 
 const square = () => {
-  if (input.value === "") {
-    input.placeholder = "Zadejte číslo..."
-  }
-  else {
+  if (input.value !== "") {
     const value = eval(input.value)
     const result = Math.pow(value, SQUARE)
   
     input.value = result
   }
-
 }
 
 const squareRoot = () => {
-  const value = eval(input.value)
-  const result = Math.sqrt(value, SQUARE)
-
-  input.value = result
+  if (input.value !== "") {
+    const value = eval(input.value)
+    const result = Math.sqrt(value, SQUARE)
+  
+    input.value = result
+  }
 }
+
+const placeholderButtons = [reverseSignButton, squareButton, squareRootButton]
 
 clearButton.addEventListener("click", clearDisplay);
 clearButton2.addEventListener("click", clearDisplay);
@@ -115,6 +117,16 @@ deleteButton.addEventListener("click", deleteKey);
 reverseSignButton.addEventListener("click", reverseSign);
 squareButton.addEventListener("click", square);
 squareRootButton.addEventListener("click", squareRoot)
+
+placeholderButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const valueIsEmpty = input.value === ""
+    
+    if (valueIsEmpty) {
+      input.placeholder = "Zadejte číslo..."
+    }
+  })
+})
 
 // Checks user input or evaluate
 enterButton.addEventListener("click", (event) => {
