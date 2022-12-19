@@ -3,12 +3,14 @@ const enterButton = document.getElementById("enterButton");
 const clearButton = document.getElementById("clearButton");
 const clearButton2 = document.getElementById("clearButton2");
 const deleteButton = document.getElementById("deleteButton");
+const squareButton = document.getElementById("squareButton");
 const reverseSignButton = document.getElementById("reverseSignButton");
 const buttons = document
   .querySelector("#calculator")
   .querySelectorAll("button");
 
 const numbers = ["0", "1", "2", "3", "5", "6", "7", "8", "9"];
+const SQUARE = 2
 
 const canPress = [
   "0",
@@ -35,6 +37,7 @@ const notShowableButtons = [
   clearButton2,
   deleteButton,
   reverseSignButton,
+  squareButton,
 ];
 
 let characterOnIndex = (index) => {
@@ -50,6 +53,8 @@ buttons.forEach((button) => {
     if (buttonCanBeShown) {
       let lastIndex = button.getAttribute("value");
       let penultimateIndex = characterOnIndex(1);
+
+      console.log(lastIndex);
 
       const valueIsSignAndInputIsEmpty =
         canPressSign.includes(lastIndex) && input.value === "";
@@ -82,6 +87,13 @@ const reverseSign = () => {
   input.value = input.value * -1;
 };
 
+const square = () => {
+  const value = eval(input.value)
+  const result = Math.pow(value, SQUARE)
+
+  input.value = result
+}
+
 //Clears display
 clearButton.addEventListener("click", clearDisplay);
 clearButton2.addEventListener("click", clearDisplay);
@@ -89,6 +101,8 @@ clearButton2.addEventListener("click", clearDisplay);
 deleteButton.addEventListener("click", deleteKey);
 
 reverseSignButton.addEventListener("click", reverseSign);
+
+squareButton.addEventListener("click", square);
 
 // Checks user input or evaluate
 enterButton.addEventListener("click", (event) => {
