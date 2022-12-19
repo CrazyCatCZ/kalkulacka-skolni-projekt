@@ -38,27 +38,33 @@ $(document).ready(() => {
     }
 
     const square = () => {
-        let temp = $("#input").val();
-        temp = eval(temp)
-        temp = Math.pow(temp, SQUARE)
-  
-        $("#input").val(temp);
+        if ($("#input").val() !== "") {
+            let temp = $("#input").val();
+            temp = eval(temp)
+            temp = Math.pow(temp, SQUARE)
+      
+            $("#input").val(temp);
+        }
     }
 
     const squareRoot = () => {
-        let temp = $("#input").val();
-        temp = eval(input.value)
-        temp = Math.sqrt(temp, SQUARE)
+        if ($("#input").val() !== "") {
+            let temp = $("#input").val();
+            temp = eval(input.value)
+            temp = Math.sqrt(temp, SQUARE)
 
-        $("#input").val(temp);
+            $("#input").val(temp);
+        }
     }
 
     const reciprocate = () => {
-        let temp = $("#input").val();
-        temp = eval(input.value)
-        temp = 1 / temp
-
-        $("#input").val(temp);
+        if ($("#input").val() !== "") {
+            let temp = $("#input").val();
+            temp = eval(input.value)
+            temp = 1 / temp
+    
+            $("#input").val(temp);
+        }
     }
     
     const calculatePercetage = () => {
@@ -98,6 +104,18 @@ $(document).ready(() => {
     $("#squareRootButton").click(squareRoot)
     $("#inverseButton").click(reciprocate)
     $("#percentButton").click(calculatePercetage)
+
+    const placeholderButtons = (
+        "#reverseSignButton, #squareButton, #squareRootButton, #inverseButton"
+    )
+
+    $(placeholderButtons).click(function(button) {
+        const valueIsEmpty = $("#input").val() == ""
+
+        if (valueIsEmpty) {
+            $("#input").attr("placeholder", "Zadejte číslo...")
+        }
+    })
     
     // Checks user input or evaluate
     $("#enterButton").click(function () {
