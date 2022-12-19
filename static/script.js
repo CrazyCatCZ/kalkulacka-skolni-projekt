@@ -7,6 +7,7 @@ const squareButton = document.getElementById("squareButton");
 const squareRootButton = document.getElementById("squareRootButton");
 const reverseSignButton = document.getElementById("reverseSignButton");
 const inverseButton = document.getElementById("inverseButton");
+const percentButton = document.getElementById("percentButton");
 const buttons = document
   .querySelector("#calculator")
   .querySelectorAll("button");
@@ -41,7 +42,8 @@ const notShowableButtons = [
   reverseSignButton,
   squareButton,
   squareRootButton,
-  inverseButton
+  inverseButton,
+  percentButton
 ];
 
 let characterOnIndex = (index) => {
@@ -120,6 +122,10 @@ const reciprocate = () => {
   }
 }
 
+const calculatePercetage = () => {
+  alert("Pro toto tlačítka nebyla do zatím přidaná funkcionalita")
+}
+
 const placeholderButtons = [
   reverseSignButton, squareButton, squareRootButton,
   inverseButton,
@@ -132,6 +138,7 @@ reverseSignButton.addEventListener("click", reverseSign);
 squareButton.addEventListener("click", square);
 squareRootButton.addEventListener("click", squareRoot)
 inverseButton.addEventListener("click", reciprocate)
+percentButton.addEventListener("click", calculatePercetage)
 
 placeholderButtons.forEach(button => {
   button.addEventListener("click", () => {
@@ -170,6 +177,8 @@ document.addEventListener("keyup", (event) => {
         button.click();
       }
     });
+  } else if (key == "Enter") {
+    input.value = eval(input.value)
   } else if (key == "Backspace") {
     let value = input.value;
     input.value = value.substring(0, value.length - 1);
