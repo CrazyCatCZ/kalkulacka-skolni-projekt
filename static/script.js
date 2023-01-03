@@ -13,7 +13,7 @@ const buttons = document
   .querySelectorAll("button");
 
 const numbers = ["0", "1", "2", "3", "5", "6", "7", "8", "9"];
-const SQUARE = 2
+const SQUARE = 2;
 
 const canPress = [
   "0",
@@ -43,7 +43,7 @@ const notShowableButtons = [
   squareButton,
   squareRootButton,
   inverseButton,
-  percentButton
+  percentButton,
 ];
 
 let characterOnIndex = (index) => {
@@ -97,66 +97,70 @@ const reverseSign = () => {
 
 const square = () => {
   if (input.value !== "") {
-    const value = eval(input.value)
-    const result = Math.pow(value, SQUARE)
-  
-    input.value = result
+    const value = eval(input.value);
+    const result = Math.pow(value, SQUARE);
+
+    input.value = result;
   }
-}
+};
 
 const squareRoot = () => {
   if (input.value !== "") {
-    const value = eval(input.value)
-    const result = Math.sqrt(value, SQUARE)
-  
-    input.value = result
+    const value = eval(input.value);
+    const result = Math.sqrt(value, SQUARE);
+
+    input.value = result;
   }
-}
+};
 
 const reciprocate = () => {
   if (input.value !== "") {
-    const value = eval(input.value)
-    const result = 1 / value
-  
-    input.value = result
+    const value = eval(input.value);
+    const result = 1 / value;
+
+    input.value = result;
   }
-}
+};
 
 const calculatePercetage = () => {
-  alert("Pro toto tlačítka nebyla do zatím přidaná funkcionalita")
-}
+  alert("Pro toto tlačítka nebyla do zatím přidaná funkcionalita");
+};
 
 const placeholderButtons = [
-  reverseSignButton, squareButton, squareRootButton,
+  reverseSignButton,
+  squareButton,
+  squareRootButton,
   inverseButton,
-]
+];
 
 clearButton.addEventListener("click", clearDisplay);
 clearButton2.addEventListener("click", clearDisplay);
 deleteButton.addEventListener("click", deleteKey);
 reverseSignButton.addEventListener("click", reverseSign);
 squareButton.addEventListener("click", square);
-squareRootButton.addEventListener("click", squareRoot)
-inverseButton.addEventListener("click", reciprocate)
-percentButton.addEventListener("click", calculatePercetage)
+squareRootButton.addEventListener("click", squareRoot);
+inverseButton.addEventListener("click", reciprocate);
+percentButton.addEventListener("click", calculatePercetage);
 
-placeholderButtons.forEach(button => {
+placeholderButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const valueIsEmpty = input.value === ""
-    
+    const valueIsEmpty = input.value === "";
+
     if (valueIsEmpty) {
-      input.placeholder = "Zadejte číslo..."
+      input.placeholder = "Zadejte číslo...";
     }
-  })
-})
+  });
+});
 
 // Checks user input or evaluate
 enterButton.addEventListener("click", (event) => {
   const lastCharacter = input.value.slice(-1);
   const lastCharacterIsSign = canPressSign.includes(lastCharacter);
+  const inputIsEmpty = input.value === "";
 
-  if (input.value == "") {
+  if (inputIsEmpty) {
     input.placeholder = "Zadeje číslo...";
+    return;
   }
 
   if (lastCharacterIsSign) {
@@ -178,7 +182,7 @@ document.addEventListener("keyup", (event) => {
       }
     });
   } else if (key == "Enter") {
-    input.value = eval(input.value)
+    input.value = eval(input.value);
   } else if (key == "Backspace") {
     let value = input.value;
     input.value = value.substring(0, value.length - 1);
