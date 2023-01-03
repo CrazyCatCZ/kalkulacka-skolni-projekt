@@ -7,7 +7,9 @@ allButtons.forEach((button) => {
 
     await fetch(`${localHost}/api`, {
       method: "POST",
-      body: JSON.stringify(clickedButton),
+      body: JSON.stringify({
+        clickedButton,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
