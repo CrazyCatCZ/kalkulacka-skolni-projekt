@@ -60,8 +60,6 @@ buttons.forEach((button) => {
       let lastIndex = button.getAttribute("value");
       let penultimateIndex = characterOnIndex(1);
 
-      console.log(lastIndex);
-
       const valueIsSignAndInputIsEmpty =
         canPressSign.includes(lastIndex) && input.value === "";
       const lastIndexIsSign =
