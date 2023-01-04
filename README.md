@@ -23,7 +23,8 @@ Použití technologie fetch a simple-json-db
 Abyste mohli spustit aplikace je potřeba:
 
 1. Spustit příkaz `npm install`
-2. V prohlížiči přejít na adresu [localhost:5000](http://localhost:5000)
+2. V prohlížiči přejít na adresu
+   <a href="http://localhost:5000" target="_blank">localhost:5000</a>
 
 ## Copyright
 
