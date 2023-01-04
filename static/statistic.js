@@ -5,7 +5,7 @@ allButtons.forEach((button) => {
   button.addEventListener("click", async () => {
     const clickedButton = button.textContent;
 
-    await fetch(`${localHost}/api`, {
+    const response = await fetch(`${localHost}/api`, {
       method: "POST",
       body: JSON.stringify({
         clickedButton,
@@ -13,9 +13,9 @@ allButtons.forEach((button) => {
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    });
+
+    const data = await response.json();
+    console.log(data);
   });
 });

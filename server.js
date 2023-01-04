@@ -36,7 +36,8 @@ router.post("/api", (req, res) => {
     db.set(clickedButton, DEFAULT_VALUE);
   }
 
-  res.json({ message: "test" });
+  // Vrátit celou statistiku tlačítek
+  res.json(db.JSON());
 });
 
 app.use(router);
