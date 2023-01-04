@@ -6,6 +6,7 @@
   position: absolute;
   top: 10em;
   left: 70%;
+  display: none;
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
@@ -24,7 +25,7 @@
 
 .statistic th,
 .statistic td {
-  padding: 12px 15px;
+  padding: 3px 10px;
 }
 
 .statistic tbody tr {
